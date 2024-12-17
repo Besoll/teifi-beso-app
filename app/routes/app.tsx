@@ -22,9 +22,10 @@ export default function App() {
     <AppProvider isEmbeddedApp apiKey={apiKey}>
       <NavMenu>
         <Link to="/app" rel="home">
-          Home
+          Teifi's assessment Challange - Built by Beso Kavzharadze
         </Link>
         <Link to="/app/additional">Additional page</Link>
+        <Link to="/app/products">Products</Link>
       </NavMenu>
       <Outlet />
     </AppProvider>

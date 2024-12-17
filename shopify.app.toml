@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "b4684ea23b119f7cde0e3a1d6b654f36"
-application_url = "https://log-associated-ellis-calculate.trycloudflare.com"
+application_url = "https://boulder-series-powder-advances.trycloudflare.com"
 embedded = true
 name = "teifi-beso-app"
 handle = "teifi-beso-app"
@@ -19,9 +19,9 @@ scopes = "read_products, write_products, read_inventory, write_inventory"
 
 [auth]
 redirect_urls = [
-  "https://log-associated-ellis-calculate.trycloudflare.com/auth/callback",
-  "https://log-associated-ellis-calculate.trycloudflare.com/auth/shopify/callback",
-  "https://log-associated-ellis-calculate.trycloudflare.com/api/auth/callback"
+  "https://boulder-series-powder-advances.trycloudflare.com/auth/callback",
+  "https://boulder-series-powder-advances.trycloudflare.com/auth/shopify/callback",
+  "https://boulder-series-powder-advances.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

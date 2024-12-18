@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, useSearchParams } from "@remix-run/react";
-import { Button, Card, Layout, List, Modal, Page, Pagination, Select } from "@shopify/polaris";
+import { Button, Card, Layout, List, Modal, Page, Pagination } from "@shopify/polaris";
 import { apiVersion, accessToken, apiUrlDomain } from "../shopify.server";
 import AddNewProduct from "../components/AddNewProduct";
 import UpdateSKU from "../components/UpdateSKU";
@@ -112,7 +112,6 @@ const Products = () => {
   const [isCreateModalActive, setIsCreateModalActive] = useState(false);
   const [isUpdateSKUModalActive, setIsUpdateSKUModalActive] = useState(false);
   const [isUpdateStatusModalActive, setIsUpdateStatusModalActive] = useState(false);
-  const [isStatusModalActive, setIsStatusModalActive] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null); // Tracks which ID is currently "copied"
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const [selectedProductStatus, setSelectedProductStatus] = useState<string | null>(null);
@@ -143,14 +142,10 @@ const Products = () => {
       // Reset after 5 seconds
       setTimeout(() => {
         setCopiedId((prev) => (prev === id ? null : prev));
-      }, 5000);
+      }, 3000);
     });
   };
 
-
-  function setActiveProductForStatus(id: string) {
-    throw new Error("Function not implemented.");
-  }
 
   // Open Modal with Dynamic Product ID and Status
   const openUpdateStatusModal = (id: string, status: string) => {
@@ -207,7 +202,7 @@ const Products = () => {
                       size="micro"
                       disclosure="up"
                     >
-                      Current Status: {node.status} {node.id}
+                      Current Status: {node.status}
                     </Button>                  
                   </List.Item>
                 );
@@ -223,7 +218,10 @@ const Products = () => {
             onNext={() => handlePagination(pageInfo.endCursor, "next")}
           />
         </Layout.Section>
+      </Layout>
 
+
+      
          {/* Update Status Modal */}
          <Modal
             open={isUpdateStatusModalActive}
@@ -240,10 +238,6 @@ const Products = () => {
               )}
             </Modal.Section>
           </Modal>
-      </Layout>
-
-
-      
 
       {/* Add New Product Modal */}
       <Modal

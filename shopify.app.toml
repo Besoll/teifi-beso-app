@@ -1,33 +1,29 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "b4684ea23b119f7cde0e3a1d6b654f36"
-application_url = "https://boulder-series-powder-advances.trycloudflare.com"
+client_id = "b557b91e9cd94f4cc1b8eba5771e3663"
+application_url = "https://fax-measurement-resorts-declared.trycloudflare.com"
 embedded = true
 name = "teifi-beso-app"
-handle = "teifi-beso-app"
+handle = "teifi-beso-app-1"
+
+[build]
+include_config_on_deploy = true
+dev_store_url = "beso-demo-store.myshopify.com"
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2024-10"
 
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_products, write_products, read_inventory, write_inventory"
+scopes = "write_inventory, write_products"
 
 [auth]
 redirect_urls = [
-  "https://boulder-series-powder-advances.trycloudflare.com/auth/callback",
-  "https://boulder-series-powder-advances.trycloudflare.com/auth/shopify/callback",
-  "https://boulder-series-powder-advances.trycloudflare.com/api/auth/callback"
+  "https://fax-measurement-resorts-declared.trycloudflare.com/auth/callback",
+  "https://fax-measurement-resorts-declared.trycloudflare.com/auth/shopify/callback",
+  "https://fax-measurement-resorts-declared.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
 embedded = false
-
-[build]
-dev_store_url = "beso-demo-store.myshopify.com"
-automatically_update_urls_on_dev = true
-include_config_on_deploy = true

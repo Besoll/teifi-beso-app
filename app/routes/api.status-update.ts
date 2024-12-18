@@ -29,14 +29,18 @@ export const action = async ({ request }: { request: Request }) => {
     },
   };
 
+  const apiUrl = `${apiUrlDomain}/admin/api/${apiVersion}/graphql.json`;
+
   try {
-    const response = await fetch(`${apiUrlDomain}/admin/api/${apiVersion}/graphql.json`, {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-Shopify-Access-Token": accessToken,
       },
-      body: JSON.stringify({ query: mutation, variables }),
+      body: JSON.stringify({ 
+        query: mutation, 
+        variables }),
     });
 
     const result = await response.json();
